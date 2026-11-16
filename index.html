@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohammed Irfan Ulla Sharif – Java Full Stack Developer</title>
+<meta name="description" content="Java Full Stack Developer in Hyderabad. Spring Boot, Hibernate/JPA, REST APIs, MySQL and JWT security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f6f8;--surface:#ffffff;--ink:#17233a;--muted:#566175;--head:#152a46;
+  --line:#dce1ea;--brass:#b97a1c;--btn:#152a46;--btn-ink:#ffffff;--band:#152a46;--band-ink:#eef3fa;--band-muted:#b4c2d6;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0d1626;--surface:#142138;--ink:#dfe7f3;--muted:#9eacc0;--head:#e8f0fb;--line:#26354f;--brass:#e0a54a;--btn:#e0a54a;--btn-ink:#0d1626;--band:#101c30;--band-ink:#eef3fa;--band-muted:#9eacc0}
+}
+:root[data-theme="dark"]{--bg:#0d1626;--surface:#142138;--ink:#dfe7f3;--muted:#9eacc0;--head:#e8f0fb;--line:#26354f;--brass:#e0a54a;--btn:#e0a54a;--btn-ink:#0d1626;--band:#101c30;--band-ink:#eef3fa;--band-muted:#9eacc0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);color:var(--head);margin:0;line-height:1.15;letter-spacing:-.01em}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font:600 17px var(--serif);color:var(--head);text-decoration:none}
+nav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
+nav a{font-size:15px;color:var(--muted);text-decoration:none;white-space:nowrap}
+nav a:hover{color:var(--head)}
+/* hero */
+.hero{padding:72px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.name{font:500 18px var(--sans);color:var(--brass);margin:0 0 14px}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:700;max-width:16ch}
+.lead{margin:22px 0 30px;max-width:56ch;color:var(--muted);font-size:18px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 24px;border-radius:4px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid var(--btn);transition:transform .15s,background .15s}
+.btn.primary{background:var(--btn);color:var(--btn-ink)}
+.btn.ghost{color:var(--head);border-color:var(--head)}
+.btn:hover{transform:translateY(-1px)}
+.photo{position:relative;justify-self:end;width:min(100%,340px)}
+.photo::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid var(--brass);border-radius:6px}
+.photo img{position:relative;display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;background:var(--surface)}
+.hero .name,.hero h1,.hero .lead,.hero .actions,.photo{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.08s}.hero .lead{animation-delay:.16s}.hero .actions{animation-delay:.24s}.photo{animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* facts */
+.facts{border-block:1px solid var(--line);background:var(--surface)}
+.facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.facts li{padding:26px 24px;border-left:1px solid var(--line)}
+.facts li:first-child{border-left:0;padding-left:0}
+.facts strong{display:block;font:700 30px/1.1 var(--serif);color:var(--head);margin-bottom:6px}
+.facts span{font-size:15px;color:var(--muted)}
+/* sections */
+section{padding:76px 0}
+.sec-head{margin-bottom:34px;max-width:60ch}
+.sec-head h2{font-size:clamp(28px,3.6vw,38px)}
+.sec-head p{margin:12px 0 0;color:var(--muted)}
+dl.skills{margin:0;border-top:1px solid var(--line)}
+dl.skills div{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+dl.skills dt{font:600 18px var(--serif);color:var(--head)}
+dl.skills dd{margin:0;color:var(--muted)}
+.proj{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;padding:36px 0;border-top:1px solid var(--line)}
+.proj:last-of-type{border-bottom:1px solid var(--line)}
+.proj h3{font-size:25px}
+.proj .year{display:block;margin-top:6px;color:var(--brass);font-weight:600;font-size:15px}
+.stack{margin:14px 0 0;color:var(--muted);font-size:15px}
+.proj ul{margin:0;padding-left:20px}
+.proj li{margin:0 0 10px}
+.proj a{color:var(--head);font-weight:600}
+.proj.minor h3{font-size:21px}
+.timeline{position:relative;margin:0;padding:0 0 0 28px;list-style:none;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 34px}
+.timeline li::before{content:"";position:absolute;left:-36px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--brass)}
+.timeline h3{font-size:21px}
+.timeline .meta{margin:4px 0 8px;color:var(--muted);font-size:15px}
+.timeline p{margin:0;max-width:62ch}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.edu h3{font-size:21px}
+.edu p{margin:8px 0 0;color:var(--muted)}
+.langs{margin-top:44px;padding-top:26px;border-top:1px solid var(--line);color:var(--muted)}
+.langs b{color:var(--head);font-family:var(--serif);font-size:18px;margin-right:8px}
+/* contact */
+.contact{background:var(--band);color:var(--band-ink)}
+.contact h2{color:var(--band-ink);font-size:clamp(30px,4vw,44px);max-width:20ch}
+.contact p{color:var(--band-muted);max-width:52ch;margin:16px 0 30px;font-size:18px}
+.contact .btn.primary{background:#e0a54a;border-color:#e0a54a;color:#10192b}
+.contact .btn.ghost{color:var(--band-ink);border-color:var(--band-muted)}
+.contact dl{display:flex;flex-wrap:wrap;gap:12px 40px;margin:38px 0 0;padding-top:26px;border-top:1px solid #2b3d5a;font-size:15px}
+.contact dt{color:var(--band-muted);display:inline;margin-right:8px}
+.contact dd{display:inline;margin:0}
+.contact dl div{white-space:nowrap}
+footer{padding:26px 0;color:var(--muted);font-size:14px}
+@media (max-width:820px){
+  .hero{padding:44px 0 48px}.hero .wrap{grid-template-columns:1fr;gap:44px}.photo{justify-self:start;width:min(78%,300px);margin-right:18px}
+  .facts ul{grid-template-columns:1fr 1fr}.facts li:nth-child(3){border-left:0;padding-left:0}.facts li:nth-child(n+3){border-top:1px solid var(--line)}
+  section{padding:56px 0}dl.skills div{grid-template-columns:1fr;gap:6px}
+  .proj{grid-template-columns:1fr;gap:18px}.edu{grid-template-columns:1fr;gap:28px}
+  .contact dl div{white-space:normal}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Mohammed Irfan Ulla Sharif</a>
+    <nav aria-label="Sections">
+      <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="name">Mohammed Irfan Ulla Sharif, Hyderabad</p>
+        <h1>Java Full Stack Developer who builds secure, role-based web applications.</h1>
+        <p class="lead">I graduated in 2026 with a B.Tech in Computer Science Engineering (AI &amp; ML) and completed a 6-month Java Full Stack program. I work with Spring Boot, Hibernate/JPA, REST APIs and MySQL, and I’m looking for an entry-level Java Full Stack or Java Backend role. I can join immediately.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:mohammedirfan2122004@gmail.com">Email me</a>
+          <a class="btn ghost" href="https://github.com/Irfan2122004" target="_blank" rel="noopener">View my GitHub</a>
+        </div>
+      </div>
+      <div class="photo"><img src="profile.jpg" alt="Portrait of Mohammed Irfan Ulla Sharif" width="340" height="340"></div>
+    </div>
+  </div>
+
+  <div class="facts" aria-label="Highlights from my main project">
+    <div class="wrap">
+      <ul>
+        <li><strong>20+</strong><span>REST API endpoints with full CRUD</span></li>
+        <li><strong>3 roles</strong><span>Admin, Faculty and Student, secured with JWT</span></li>
+        <li><strong>3NF</strong><span>Normalized MySQL database</span></li>
+        <li><strong>6 months</strong><span>Java Full Stack training, 2026</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><h2>Technical skills</h2><p>The tools I use to build and ship backend and full-stack applications.</p></div>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>Java (Core and Advanced), SQL, JavaScript, HTML, CSS, Python</dd></div>
+        <div><dt>Backend</dt><dd>Spring Boot, Spring MVC, Hibernate, JPA, RESTful APIs, JWT Authentication, Servlets, JSP, JDBC, MVC Architecture</dd></div>
+        <div><dt>Database</dt><dd>MySQL, Relational Databases, Normalization, Indexing, Transactions</dd></div>
+        <div><dt>Tools</dt><dd>Git, GitHub, Maven, IntelliJ IDEA, Eclipse, VS Code</dd></div>
+        <div><dt>Core concepts</dt><dd>Object-Oriented Programming, Data Structures and Algorithms, CRUD Operations, Role-Based Access Control, Agile Development, Operating Systems, Computer Networks</dd></div>
+        <div><dt>Machine learning (basic)</dt><dd>TensorFlow, Keras, scikit-learn</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="projects" style="background:var(--surface);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head"><h2>Projects</h2><p>Two projects: a full-stack Java application and a machine-learning study.</p></div>
+      <article class="proj">
+        <div><h3>Academic Sphere: Academic Management System</h3><span class="year">2025</span><p class="stack">Java, Spring Boot, Hibernate/JPA, MySQL, REST API, JWT</p></div>
+        <ul>
+          <li>Developed a full-stack web application for a college with three roles (Admin, Faculty, Student) and JWT-based role access control.</li>
+          <li>Built 20+ RESTful API endpoints with full CRUD operations, organised as Controller, Service and Repository layers.</li>
+          <li>Designed a normalized (3NF) MySQL database and mapped it with Hibernate/JPA.</li>
+          <li>Developed an exam seating allocation feature that automates what was earlier done by hand.</li>
+          <li><a href="https://github.com/Irfan2122004" target="_blank" rel="noopener">See the code on GitHub</a></li>
+        </ul>
+      </article>
+      <article class="proj minor">
+        <div><h3>Chronic Heart Failure Detection from Heart Sounds</h3><span class="year">2024</span><p class="stack">Python, CNN, Random Forest, Digital Signal Processing</p></div>
+        <ul>
+          <li>Built a hybrid CNN and Random Forest model to detect chronic heart failure from phonocardiogram (PCG) heart sound recordings.</li>
+          <li>Created a spectrogram-based feature extraction pipeline and evaluated the model using precision, recall and F1-score.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><h2>Experience and training</h2></div>
+      <ol class="timeline">
+        <li><h3>Java Full Stack Development Training</h3><p class="meta">Naresh IT Institute, Hyderabad, 2026</p><p>Completed a 6-month program covering Core Java, Advanced Java, Spring Boot, Hibernate, REST APIs, MySQL, HTML, CSS and JavaScript. Built projects and took part in code reviews.</p></li>
+        <li><h3>Intern, Electronics and Instrumentation</h3><p class="meta">CITD, Hyderabad, 2022 to 2023</p><p>Worked with industrial electronics systems and hardware debugging.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="education" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>Education</h2></div>
+      <div class="edu">
+        <div><h3>B.Tech in Computer Science Engineering (AI &amp; ML)</h3><p>Malla Reddy College of Engineering, Hyderabad<br>2023 to 2026, CGPA 7.0/10</p></div>
+        <div><h3>Diploma in Electronics and Instrumentation Engineering</h3><p>Government Institute of Electronics, Hyderabad<br>2020 to 2023</p></div>
+      </div>
+      <p class="langs"><b>Languages</b>English (Fluent), Telugu (Native), Hindi (Conversational)</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Hiring a Java developer? Let’s talk.</h2>
+      <p>I’m available to join immediately for entry-level Java Full Stack and Java Backend roles. Send me a message and I’ll reply quickly.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:mohammedirfan2122004@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/mohammed-irfan-ulla-sharif" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+      <dl>
+        <div><dt>Email</dt><dd>mohammedirfan2122004@gmail.com</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+919392853093">+91 9392853093</a></dd></div>
+        <div><dt>Location</dt><dd>Hyderabad, Telangana, India</dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/Irfan2122004" target="_blank" rel="noopener">github.com/Irfan2122004</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Mohammed Irfan Ulla Sharif</div></footer>
+</body>
+</html>
